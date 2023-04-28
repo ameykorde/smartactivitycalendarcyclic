@@ -2,16 +2,16 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
-import connectDB from './connectDB/connectDB.js';
-import authRoute from './routes/authRoute.js';
-import notice from './routes/notice.js';
-import ongoing from './routes/ongoing.js';
-import teachers from './routes/teachers.js';
-import timeTable from './routes/timeTable.js';
-import calendar from './routes/acRoute.js';
-import absentTeacher from './routes/absentTeacher.js';
-import todo from './routes/todo.js';
-import verify from './middleware/verifyToken.js';
+import connectDB from './connectDB/connectDB.mjs';
+import authRoute from './routes/authRoute.mjs';
+import notice from './routes/notice.mjs';
+import ongoing from './routes/ongoing.mjs';
+import teachers from './routes/teachers.mjs';
+import timeTable from './routes/timeTable.mjs';
+import calendar from './routes/acRoute.mjs';
+import absentTeacher from './routes/absentTeacher.mjs';
+import todo from './routes/todo.mjs';
+import verify from './middleware/verifyToken.mjs';
 import path from 'path';
 
 // Create an express app
@@ -22,9 +22,6 @@ app.use(cors());
 
 // Load environment variables
 dotenv.config({ path: './.env' });
-
-// Connect to MongoDB
-connectDB();
 
 // Set up port number
 const PORT = process.env.PORT || 5000;
@@ -53,11 +50,14 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 app.use(express.static(path.join(__dirname, './frontend')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './frontend/dist/index.html'));
+    res.sendFile(path.join(__dirname, './frontend/dist/index.html'));
 });
 
 
+// Connect to MongoDB
+connectDB();
+
 // Start server
 app.listen(PORT, () => {
-  console.log(`Connected to port ${PORT}`);
+    console.log(`Connected to port ${PORT}`);
 });
