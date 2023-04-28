@@ -23,6 +23,9 @@ app.use(cors());
 // Load environment variables
 dotenv.config({ path: './.env' });
 
+// Connect to MongoDB
+connectDB();
+
 // Set up port number
 const PORT = process.env.PORT || 5000;
 
@@ -53,8 +56,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './frontend/dist/index.html'));
 });
 
-// Connect to MongoDB
-connectDB();
 
 // Start server
 app.listen(PORT, () => {
