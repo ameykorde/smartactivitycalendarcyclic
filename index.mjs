@@ -26,8 +26,6 @@ dotenv.config({ path: './.env' });
 // Set up port number
 const PORT = process.env.PORT || 5000;
 
-// Connect to MongoDB
-connectDB();
 
 // Use express json middleware
 app.use(express.json());
@@ -54,6 +52,9 @@ app.use(express.static(path.join(__dirname, '../frontend/dist')));
 app.get('*', (req,res)=>{
     res.sendFile(path.join(__dirname, '../frontend/dist/index.html'))
 })
+
+// Connect to MongoDB
+connectDB();
 
 // Start server
 app.listen(PORT, () => {
