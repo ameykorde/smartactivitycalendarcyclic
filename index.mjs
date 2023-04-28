@@ -12,7 +12,6 @@ import calendar from './routes/acRoute.mjs';
 import absentTeacher from './routes/absentTeacher.mjs';
 import todo from './routes/todo.mjs';
 import verify from './middleware/verifyToken.mjs';
-import path from 'path'
 
 // Create an express app
 const app = express(); 
@@ -45,13 +44,6 @@ app.use('/calendar', verify, calendar);
 app.use('/todo',verify,todo)
 
 app.use('/absent', absentTeacher);
-
-//static files
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-app.get('*', (req,res)=>{
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'))
-})
 
 // Connect to MongoDB
 connectDB();
