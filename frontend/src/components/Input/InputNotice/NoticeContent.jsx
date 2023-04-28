@@ -4,7 +4,6 @@ import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './InputNotice.css';
-import {BASE_URL} from '../../../../services/url'
 
 function NoticeContent(props) {
 
@@ -22,7 +21,7 @@ function NoticeContent(props) {
     // Function to delete the notice
     const deleteNotice = async (id) => {
         try {
-            await axios.delete(`${BASE_URL}/notice/delete-notice/${id}`);
+            await axios.delete(`/notice/delete-notice/${id}`);
             toast.success("Deleted Successfully");
         } catch (error) {
             toast.error("Something Went Wrong");
@@ -49,7 +48,7 @@ function NoticeContent(props) {
     const handleSave = async () => {
         try {
             // Send updated data to the server using axios
-            await axios.put(`${BASE_URL}/notice/update-notice/${props.id}`, originalData);
+            await axios.put(`/notice/update-notice/${props.id}`, originalData);
             setIsEditing(false);
             toast.success("Saved Successfully");
         } catch (error) {

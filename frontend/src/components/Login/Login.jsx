@@ -4,7 +4,6 @@ import axios from 'axios';
 import './Login.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {BASE_URL} from '../../../services/url'
 
 export default function Login() {
 
@@ -28,7 +27,7 @@ export default function Login() {
 
     try {
       // Making a post request to the login endpoint with user data and setting headers for content-type
-      const response = await axios.post(`${BASE_URL}/login`, user, {
+      const response = await axios.post(`/login`, user, {
         headers: {
           'Content-Type': 'application/json'
         }

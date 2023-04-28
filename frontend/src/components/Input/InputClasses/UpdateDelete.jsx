@@ -4,7 +4,6 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment';
-import {BASE_URL} from '../../../../services/url'
 
 const ViewOngoing = () => {
     const navigate = useNavigate(); // Allows navigation to other pages
@@ -57,7 +56,7 @@ const ViewOngoing = () => {
     // Handle deletion of a single data item
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`${BASE_URL}/ongoing/deleteClass/${id}`);
+            await axios.delete(`/ongoing/deleteClass/${id}`);
             toast.success('Data Deleted Successfully');
             setOngoingData(ongoingData.filter((data) => data._id !== id));
         } catch (error) {
@@ -69,7 +68,7 @@ const ViewOngoing = () => {
     const handleDeleteAll = async () => {
         if (window.confirm('Are you sure you want to delete all data?')) {
             try {
-                await axios.delete(`${BASE_URL}/ongoing/deleteAllClass`);
+                await axios.delete(`/ongoing/deleteAllClass`);
                 toast.success('All Data Deleted Successfully');
             } catch (error) {
                 toast.error('Connection Error');
@@ -95,7 +94,7 @@ const ViewOngoing = () => {
     const handleUpdate = async (id) => {
         try {
             const response = await axios.put(
-                `${BASE_URL}/ongoing/updateOngoingClass/${id}`,
+                `/ongoing/updateOngoingClass/${id}`,
                 {
                     semester: updateData.semester,
                     section: updateData.section,
@@ -140,7 +139,7 @@ const ViewOngoing = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                        `${BASE_URL}/ongoing/allData`
+                        `/ongoing/allData`
                 );
                 setOngoingData(response.data);
             } catch (error) {

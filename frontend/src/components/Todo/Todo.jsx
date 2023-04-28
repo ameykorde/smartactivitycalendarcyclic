@@ -5,7 +5,6 @@ import Navbar from "../Navbar/Nav";
 import './Todo.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {BASE_URL} from '../../../services/url'
 
 function Todo() {
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ function Todo() {
   const addItem = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${BASE_URL}/todo/post`, { userId, title, description })
+      const res = await axios.post(`/todo/post`, { userId, title, description })
       toast.success("Added Successfully");
       setListItems(prev => [...prev, res.data]);
       setTitle('');
@@ -42,7 +41,7 @@ function Todo() {
   useEffect(() => {
     const getItemsList = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/todo/get/${userId}`)
+        const res = await axios.get(`/todo/get/${userId}`)
         setListItems(res.data);
       } catch (err) {
         console.log(err);
@@ -58,7 +57,7 @@ function Todo() {
   // Function to delete item when clicked on delete button
   const deleteItem = async (id) => {
     try {
-      await axios.delete(`${BASE_URL}/todo/delete/${id}`, { userId })
+      await axios.delete(`/todo/delete/${id}`, { userId })
       const newListItems = listItems.filter(item => item._id !== id);
       setListItems(newListItems);
       toast.success('Deleted Successfully')
@@ -71,7 +70,7 @@ function Todo() {
   const updateItem = async (e) => {
     e.preventDefault()
     try {
-      await axios.put(`${BASE_URL}/todo/${isUpdating}`, { userId, title: updateTitle, description: updateDescription })
+      await axios.put(`/todo/${isUpdating}`, { userId, title: updateTitle, description: updateDescription })
       toast.success("Updated Successfully")
       const updatedItemIndex = listItems.findIndex(item => item._id === isUpdating);
       const updatedItem = listItems[updatedItemIndex];

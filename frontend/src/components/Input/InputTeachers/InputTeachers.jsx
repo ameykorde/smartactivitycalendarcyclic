@@ -5,7 +5,6 @@ import InputNavbar from '../InputNavbar/InputNavbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UpdateDelete from './UpdateDelete';
-import {BASE_URL} from '../../../../services/url'
 
 function InputTeachers() {
   const [name, setName] = useState('');
@@ -20,7 +19,7 @@ function InputTeachers() {
     formData.append('file', file);
     
     try {
-      const response = await axios.post(`${BASE_URL}/teacher/post`, formData);
+      const response = await axios.post(`/teacher/post`, formData);
       console.log(response.data);
       toast.success('Teacher added successfully!');
       // Reset form and file input after successful submission

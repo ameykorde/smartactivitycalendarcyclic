@@ -5,7 +5,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import DeleteTeacher from './DeleteTeacher'
-import {BASE_URL} from '../../../../services/url'
 
 const InputAbsentTeacher = () => {
     // Initialize states
@@ -19,11 +18,11 @@ const InputAbsentTeacher = () => {
         e.preventDefault();
         try {
         // Send data to server for saving
-        await axios.post(`${BASE_URL}/absent/teacher`, { name, fromDate, toDate });
+        await axios.post(`/absent/teacher`, { name, fromDate, toDate });
         // Show success message to user
         toast.success('Data saved successfully');
         // Send delete request to server to clear input fields
-        await axios.delete(`${BASE_URL}/absent/teacher`);
+        await axios.delete(`/absent/teacher`);
     } catch (err) {
         // Show error message to user if all fields are not filled
         toast.error('All fields required');

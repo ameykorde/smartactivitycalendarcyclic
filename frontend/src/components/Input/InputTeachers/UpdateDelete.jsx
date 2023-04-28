@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {BASE_URL} from '../../../../services/url'
 
 function UpdateDelete() {
   const navigate = useNavigate();
@@ -59,7 +58,7 @@ function UpdateDelete() {
 
     try {
       // Send PATCH request to update teacher with updated data
-      const response = await axios.patch(`${BASE_URL}/teacher/update/${id}`, formData, {
+      const response = await axios.patch(`/teacher/update/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -99,7 +98,7 @@ function UpdateDelete() {
     async function fetchTeachers() {
       try {
         // Send GET request to fetch teachers
-        const response = await axios.get(`${BASE_URL}/teacher/get`);
+        const response = await axios.get(`/teacher/get`);
 
         // Update teachers state with fetched teachers
         setTeachers(response.data);
@@ -120,7 +119,7 @@ function UpdateDelete() {
   const handleDelete = async (teacherId) => {
     try {
       // Send DELETE request to delete teacher
-      const response = await axios.delete(`${BASE_URL}/teacher/delete/${teacherId}`);
+      const response = await axios.delete(`/teacher/delete/${teacherId}`);
       console.log(response.data);
 
       // Update teachers state with remaining teachers
@@ -175,7 +174,7 @@ function UpdateDelete() {
                 <>
                   <td>{teacher.name}</td>
                   <td>{teacher.email}</td>
-                  <td><img src={`${BASE_URL}/uploads/${teacher.file}`} alt="timetable" width="50" height="50" /></td>
+                  <td><img src={`/uploads/${teacher.file}`} alt="timetable" width="50" height="50" /></td>
                   <td>
                     <button onClick={() => handleEdit(teacher._id)} className="btn btn-primary me-2">Edit</button>
                     <button onClick={() => handleDelete(teacher._id)} className="btn btn-danger">Delete</button>

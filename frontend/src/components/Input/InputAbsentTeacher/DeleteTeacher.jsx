@@ -5,7 +5,6 @@ import axios from 'axios';
 import moment from 'moment'; // for formatting dates
 import { ToastContainer, toast } from 'react-toastify'; // for displaying success/error messages
 import 'react-toastify/dist/ReactToastify.css';
-import {BASE_URL} from '../../../../services/url'
 
 const DeleteTeacher = () => {
   const [absentTeachers, setAbsentTeachers] = useState([]);
@@ -13,7 +12,7 @@ const DeleteTeacher = () => {
   // fetch absent teachers data from server on component mount
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(`${BASE_URL}/absent/teacher/get`);
+      const result = await axios.get(`/absent/teacher/get`);
       setAbsentTeachers(result.data);
     };
     fetchData();
@@ -22,7 +21,7 @@ const DeleteTeacher = () => {
   // function to delete a teacher from the table and server
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${BASE_URL}/absent/teacher/${id}`);
+      await axios.delete(`/absent/teacher/${id}`);
       setAbsentTeachers(absentTeachers.filter((teacher) => teacher._id !== id));
       toast.success('Data deleted successfully');
     } catch (err) {

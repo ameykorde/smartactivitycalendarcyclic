@@ -3,7 +3,6 @@ import axios from 'axios';
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {BASE_URL} from '../../../services/url'
 
 function NoticeAlert() {
     const [notices, setNotices] = useState([]);
@@ -12,7 +11,7 @@ function NoticeAlert() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await axios.get(`${BASE_URL}/notice/noticeData`);
+                const result = await axios.get(`/notice/noticeData`);
                 // Filter notices to only show those for the current day
                 const filteredNotices = result.data.filter((notice) => {
                     return moment(notice.date).isSame(moment(), 'day');

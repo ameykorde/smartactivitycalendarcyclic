@@ -5,7 +5,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import UpdateDelete from './UpdateDelete';
-import {BASE_URL} from '../../../../services/url'
 
 export default function InputAC() {
   // Set initial states
@@ -22,7 +21,7 @@ export default function InputAC() {
 
     try {
       // Send POST request to server with formData
-      const response = await axios.post(`${BASE_URL}/calendar/post`, formData);
+      const response = await axios.post(`/calendar/post`, formData);
       console.log(response.data);
       // Show success message
       toast.success('Calendar added successfully!');

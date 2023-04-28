@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css'; // Styling for toast messages
 import UpdateDelete from './UpdateDelete';
 import InputNavbar from '../InputNavbar/InputNavbar';
 import './InputClasses.css';
-import {BASE_URL} from '../../../../services/url'
 
 const AddOngoing = () => {
   // Initialize state variables for form inputs
@@ -23,7 +22,7 @@ const AddOngoing = () => {
     e.preventDefault();
     try {
       // Send POST request to create new ongoing class in database
-      await axios.post(`${BASE_URL}/ongoing/createNewOngoing`, {
+      await axios.post(`/ongoing/createNewOngoing`, {
         semester,
         section,
         day,

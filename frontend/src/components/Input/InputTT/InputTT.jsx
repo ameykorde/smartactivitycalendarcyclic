@@ -4,7 +4,6 @@ import InputNavbar from '../InputNavbar/InputNavbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import {BASE_URL} from '../../../../services/url'
 
 export default function InputTT() {
   const navigate = useNavigate();
@@ -16,7 +15,7 @@ export default function InputTT() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/timetable/get`);
+        const response = await axios.get(`/timetable/get`);
         setData(response.data);
       } catch (error) {
         console.error(error);
@@ -46,7 +45,7 @@ export default function InputTT() {
     }
 
     try {
-      const response = await axios.post(`${BASE_URL}/timetable/post`, formData);
+      const response = await axios.post(`/timetable/post`, formData);
       toast.success("Time-Table Added Successfully")
       console.log(response.data);
     } catch (error) {
@@ -57,7 +56,7 @@ export default function InputTT() {
   // Function to handle deletion of a semester
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`${BASE_URL}/timetable/delete/${id}`);
+      const response = await axios.delete(`/timetable/delete/${id}`);
       setData((prevSemesters) => prevSemesters.filter((semester) => semester._id !== id)); //update the data by removing deleted data
       console.log(response.data);
     } catch (error) {
