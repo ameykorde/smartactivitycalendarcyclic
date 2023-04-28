@@ -1,0 +1,54 @@
+/* ---- Notice CSS ------ */
+
+.notice-card {
+    margin: 2%;
+    width: 80%;
+    min-height: 15rem;
+    border-radius: 20px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.35);
+    border: none;
+    padding: 1%;
+    overflow: auto;
+}
+
+/* ---------------------- Notice Card-Content----------------- */
+
+.notice-time {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+
+.notice-content h3 {
+    font-weight: 700;
+    margin-top: 0.3%;
+}
+
+.notice-content h5 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    content: justify;
+    line-height: 1.5;
+}
+
+/* media queries for smaller devices */
+@media only screen and (max-width: 768px) {
+    .notice-card {
+        margin: 4% 2%;
+        width: 90%;
+        min-height: 10rem;
+        border-radius: 15px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.35);
+        border: none;
+        padding: 2%;
+        overflow: auto;
+    }
+
+    .notice-time h5 {
+        font-size: 1rem;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        content: justify;
+    }
+}
