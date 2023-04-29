@@ -50,7 +50,7 @@ app.use('/absent', absentTeacher);
 
 // Serve static files
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-app.use(express.static(path.join(__dirname, './frontend')));
+app.use(express.static(path.join(__dirname, './frontend/dist')));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './frontend/dist/index.html'));
