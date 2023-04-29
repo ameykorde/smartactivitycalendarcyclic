@@ -7,24 +7,25 @@ import 'react-toastify/dist/ReactToastify.css';
 function NoticeAlert() {
     const [notices, setNotices] = useState([]);
 
-    // Fetch notice data from server on component mount
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const result = await axios.get(`/notice/noticeData`);
-                // Filter notices to only show those for the current day
-                const filteredNotices = result.data.filter((notice) => {
-                    return moment(notice.date).isSame(moment(), 'day');
-                });
-                setNotices(filteredNotices);
-            } catch (error) {
-                console.error(error);
-            }
-        };
+    // Fetch notice data from server on component mount if user logged in
+    if (localStorage.getItem("user")) {
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const result = await axios.get(`/notice/noticeData`);
+                    // Filter notices to only show those for the current day
+                    const filteredNotices = result.data.filter((notice) => {
+                        return moment(notice.date).isSame(moment(), 'day');
+                    });
+                    setNotices(filteredNotices);
+                } catch (error) {
+                    console.error(error);
+                }
+            };
 
-        fetchData();
-    }, []);
-
+            fetchData();
+        }, []);
+    }
     // Convert time to a display format
     let displayTime = moment(notices.time, 'HH:mm').format('hh:mm A');
     // If the time is invalid, set displayTime to an empty string
