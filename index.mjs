@@ -20,6 +20,9 @@ const app = express();
 // Set up CORS
 app.use(cors());
 
+// Connect to MongoDB
+connectDB();
+
 // Load environment variables
 dotenv.config({ path: './.env' });
 
@@ -53,9 +56,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './frontend/dist/index.html'));
 });
 
-
-// Connect to MongoDB
-connectDB();
 
 // Start server
 app.listen(PORT, () => {
