@@ -43,7 +43,7 @@ function register() {
         // Validating input data and posting to server
         else if (name && username && id && (password === cpassword)) {
             // Passwords match, proceed with registration
-            const res = await axios.post(`/register`, user)
+            const res = await axios.post(`/register/post`, user)
             if (res.data.error) {
                 toast.error(res.data.error, {
                     position: "top-center"

@@ -27,7 +27,7 @@ export default function Login() {
 
     try {
       // Making a post request to the login endpoint with user data and setting headers for content-type
-      const response = await axios.post(`/login`, user, {
+      const response = await axios.post(`/login/post`, user, {
         headers: {
           'Content-Type': 'application/json'
         }
