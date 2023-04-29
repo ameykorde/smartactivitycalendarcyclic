@@ -36,8 +36,12 @@ function register() {
         e.preventDefault();
         const { name, username, id, password, cpassword } = user;
 
+        //Checking if user has entered the data or not
+        if(name === "" || username === "" || password === "" || cpassword === ""){
+            toast.error('All fields are mandatory ', {position: "top-center"})
+        }
         // Validating input data and posting to server
-        if (name && username && id && (password === cpassword)) {
+        else if (name && username && id && (password === cpassword)) {
             // Passwords match, proceed with registration
             const res = await axios.post(`/register`, user)
             if (res.data.error) {
