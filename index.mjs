@@ -20,11 +20,11 @@ const app = express();
 // Set up CORS
 app.use(cors());
 
-// Connect to MongoDB
-connectDB();
-
 // Load environment variables
 dotenv.config({ path: './.env' });
+
+// Connect to MongoDB
+connectDB();
 
 // Set up port number
 const PORT = process.env.PORT || 5000;

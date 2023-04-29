@@ -24,7 +24,7 @@ function register() {
     const handlePassword = (event) => {
         const password = event.target.value;
         setUser({ ...user, password });
-        if (password.length !== 6) {
+        if (password.length <= 6) {
             setErrorMessage('Password must be 6 characters long.');
         } else {
             setErrorMessage('');
@@ -105,7 +105,7 @@ function register() {
 
                                         {/* <!-- Email input --> */}
                                         <div className="form-floating mb-4">
-                                            <input name="id" value={user.id} onChange={handleInput} type="password" className="form-control" placeholder="Name" />
+                                            <input name="id" value={user.id} onChange={handleInput} type="text" className="form-control" placeholder="Name" />
                                             <label className="form-label" htmlFor="floatingInput">Enter ID</label>
                                         </div>
 
@@ -114,10 +114,10 @@ function register() {
                                                 name="password"
                                                 value={user.password}
                                                 onChange={handlePassword}
-                                                type="password"
+                                                type="text"
                                                 className="form-control"
                                                 placeholder="Name"
-                                                maxLength={6}
+                                                minLength={6}
                                             />
                                             <label className="form-label" htmlFor="floatingInput">
                                                 Enter Password
