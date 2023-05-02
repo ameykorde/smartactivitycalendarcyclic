@@ -55,7 +55,7 @@ export default function Login() {
 
 
   return (
-    <body style={{ backgroundColor: 'hsl(218, 41%, 15%)', height: '100vh' }}>
+    <>
       <section className="background-radial-gradient overflow-hidden login">
         <div className="container px-4 py-4 px-md-5 text-center text-lg-start my-5">
           <div className="row gx-lg-5 align-items-center mb-5">
@@ -120,7 +120,7 @@ export default function Login() {
         </div>
       </section>
       <ToastContainer />
-      </body>
+      </>
   );
 
 }

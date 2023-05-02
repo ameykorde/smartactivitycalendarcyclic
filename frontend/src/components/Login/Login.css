@@ -1,3 +1,9 @@
+section.background-radial-gradient {
+    background-color: hsl(218, 41%, 15%);
+    height: 100vh;
+  }
+  
+
 section{
     color: black;
 }
@@ -72,9 +78,12 @@ section{
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
+    section.background-radial-gradient {
+        height: 100%;
+      }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 992px) {
     .login h1 {
         font-size: 3rem;
     }
@@ -82,5 +91,10 @@ section{
     .login span {
         font-size: 3rem;
     }
+
+    section.background-radial-gradient {
+        height: 100%;
+      }
+      
 }
 
