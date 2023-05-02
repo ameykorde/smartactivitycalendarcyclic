@@ -1,6 +1,7 @@
 // Import required modules
 import Notice from '../model/notice.mjs';
 import moment from 'moment';
+import 'moment-timezone';
 
 // Function to add new notice
 const newNotice = async (req, res) => {
@@ -41,6 +42,8 @@ const deleteNotice = async (req, res) => {
 // Function to get notices with filter by date and time
 const getData = async (req, res) => {
 	try {
+		moment.tz.setDefault('Asia/Kolkata');  //setting default timezone to Indian Timezone
+
 		// Get current date and time
 		const currentDate = moment().format('YYYY-MM-DD');
 		const currentTime = moment().format('HH:mm')
@@ -94,7 +97,6 @@ const deleteNoticeByTime = async (req, res) => {
 
 	} catch (err) {
 		// Send response with error message if something went wrong
-		console.error(err);
 		res.status(500).send(err);
 	}
 

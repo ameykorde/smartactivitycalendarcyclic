@@ -4,6 +4,7 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import './Register.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BASE_URL } from '../../../services/url'
 
 function register() {
 
@@ -43,7 +44,7 @@ function register() {
         // Validating input data and posting to server
         else if (name && username && id && (password === cpassword)) {
             // Passwords match, proceed with registration
-            const res = await axios.post(`/register/post`, user)
+            const res = await axios.post(`${BASE_URL}/register/post`, user)
             if (res.data.error) {
                 toast.error(res.data.error, {
                     position: "top-center"
@@ -63,11 +64,8 @@ function register() {
         }
     }
 
-
-
-
     return (
-        <>
+        <body style={{ backgroundColor: 'hsl(218, 41%, 15%)' }}>
             <section className="background-radial-gradient overflow-hidden">
 
                 <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5 register">
@@ -146,7 +144,7 @@ function register() {
                 </div>
             </section>
             <ToastContainer />
-        </>
+        </body>
     )
 }
 

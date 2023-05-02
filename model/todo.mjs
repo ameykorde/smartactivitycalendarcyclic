@@ -8,14 +8,18 @@ const todoSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    title: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        default: ''
-    }
+    todos: [
+      {
+        title: {
+          type: String,
+          required: true
+        },
+        description: {
+          type: String,
+          default: ''
+        }
+      }
+    ]
 }); 
 
 // Create a Mongoose model from the schema

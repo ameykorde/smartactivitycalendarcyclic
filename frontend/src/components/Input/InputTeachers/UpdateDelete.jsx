@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {BASE_URL} from '../../../../services/url'
 
 function UpdateDelete() {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ function UpdateDelete() {
 
     try {
       // Send PATCH request to update teacher with updated data
-      const response = await axios.patch(`/teacher/update/${id}`, formData, {
+      const response = await axios.patch(`${BASE_URL}/teacher/update/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -98,7 +99,7 @@ function UpdateDelete() {
     async function fetchTeachers() {
       try {
         // Send GET request to fetch teachers
-        const response = await axios.get(`/teacher/get`);
+        const response = await axios.get(`${BASE_URL}/teacher/get`);
 
         // Update teachers state with fetched teachers
         setTeachers(response.data);
@@ -119,15 +120,15 @@ function UpdateDelete() {
   const handleDelete = async (teacherId) => {
     try {
       // Send DELETE request to delete teacher
-      const response = await axios.delete(`/teacher/delete/${teacherId}`);
+      const response = await axios.delete(`${BASE_URL}/teacher/delete/${teacherId}`);
       console.log(response.data);
 
       // Update teachers state with remaining teachers
       setTeachers(teachers.filter((teacher) => teacher._id !== teacherId));
 
-      toast.success('Teacher deleted successfully!');
+      toast.success('Timetable deleted successfully!');
     } catch (error) {
-      toast.error('Failed to delete teacher!');
+      toast.error('Failed to delete Timetable!');
       console.error(error);
     }
   };
@@ -150,7 +151,7 @@ function UpdateDelete() {
           {/* Mapping through the 'teachers' array and rendering a table row for each teacher */}
           {teachers.map((teacher) => (
             // Setting a unique 'key' prop for each row, using the teacher's ID
-            <tr key={teacher._id}>
+            <tr key={teacher._id} style={{fontSize:"1.2rem"}}>
               {/* Conditionally rendering either the teacher's data or an edit form */}
               {editId === teacher._id ? (
                 // If the 'editId' state matches the current teacher's ID, render an edit form
@@ -174,7 +175,7 @@ function UpdateDelete() {
                 <>
                   <td>{teacher.name}</td>
                   <td>{teacher.email}</td>
-                  <td><img src={`/uploads/${teacher.file}`} alt="timetable" width="50" height="50" /></td>
+                  <td><img src={`${BASE_URL}/uploads/${teacher.file}`} alt="timetable" width="50" height="50" /></td>
                   <td>
                     <button onClick={() => handleEdit(teacher._id)} className="btn btn-primary me-2">Edit</button>
                     <button onClick={() => handleDelete(teacher._id)} className="btn btn-danger">Delete</button>

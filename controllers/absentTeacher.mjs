@@ -1,6 +1,7 @@
 // Import necessary modules
 import AbsentTeacher from '../model/absentTeacher.mjs';
 import moment from 'moment';
+import 'moment-timezone';
 
 // Create an absent teacher
 const createAbsentTeacher = async (req, res) => {
@@ -20,7 +21,6 @@ const createAbsentTeacher = async (req, res) => {
         // Respond with a success message and the saved data
         res.status(201).json(savedAbsentTeacher);
     } catch (err) {
-        console.error(err);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
@@ -28,6 +28,8 @@ const createAbsentTeacher = async (req, res) => {
 // Get all absent teachers
 const getAbsentTeacher = async (req, res) => {
     try {
+        moment.tz.setDefault('Asia/Kolkata');  //setting default timezone to Indian Timezone
+
         // Get the current date and time
         const currentDate = moment().startOf('day');
         
@@ -57,7 +59,6 @@ const deleteAbsentTeacherById = async (req, res) => {
         res.json({ message: 'Teacher deleted successfully' });
     } catch (err) {
         // Handle errors
-        console.error(err);
         res.status(500).json({ message: 'Failed to delete teacher' });
     }
 };

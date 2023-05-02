@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Login.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {BASE_URL} from '../../../services/url'
 
 export default function Login() {
 
@@ -27,7 +28,7 @@ export default function Login() {
 
     try {
       // Making a post request to the login endpoint with user data and setting headers for content-type
-      const response = await axios.post(`/login/post`, user, {
+      const response = await axios.post(`${BASE_URL}/login/post`, user, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -54,7 +55,7 @@ export default function Login() {
 
 
   return (
-    <>
+    <body style={{ backgroundColor: 'hsl(218, 41%, 15%)' }}>
       <section className="background-radial-gradient overflow-hidden login">
         <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
           <div className="row gx-lg-5 align-items-center mb-5">
@@ -119,7 +120,7 @@ export default function Login() {
         </div>
       </section>
       <ToastContainer />
-    </>
+      </body>
   );
 
 }

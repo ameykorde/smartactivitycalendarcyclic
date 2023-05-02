@@ -1,23 +1,21 @@
-.custom-navbar{
-    background: #2B3597;
+.custom-navbar {
     font-family: 'Poppins', sans-serif;
     padding: 0.35% 2% 0.35% 0%;
     font-weight: 500;
 }
 
-/* ------------------Navbar List ------------------ */
-
-.navbar-list{
+.navbar-list {
     font-size: 1.4rem;
 }
 
-.navbar-nav > li{
-    padding-left:15px;
-    padding-right:15px;
-  }
-/*------------------- Search Input----------------- */
+.navbar-nav>li {
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
-.notice-input{
+/* ----Search ------- */
+
+.nav-input {
     background: transparent;
     border: none;
     border-bottom: 1px solid;
@@ -27,33 +25,66 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-textarea:focus, .notice-input:focus{
+.nav-input::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+textarea:focus,
+.nav-input:focus {
     outline: none;
 }
 
-.notice-input::placeholder {
-    color: white;
-    opacity: 0.5;
-  }
-
-.nav-logout{
-    color: white; 
-    opacity: 0.8;
-    visibility: hidden;
-}
-
-/*---- icon -----*/
-
-.fa-magnifying-glass{
+.fa-magnifying-glass {
     color: aliceblue;
     opacity: 0.8;
     margin: 2%;
     font-size: larger;
 }
 
-/* logout button visible in navbar on small devices only */
-@media screen and (max-width: 768px) {
-    .nav-logout{
-        visibility: visible;
+/* logout */
+
+.nav-logout {
+    color: white;
+    opacity: 0.8;
+    display: none;
+}
+
+/* ----------theme icon -----------*/
+.theme-small-device{
+    display: none;
+}
+
+.theme{
+    margin: 0.5% -2% 0 1.5%;
+    display: block;
+    opacity: 0.9;
+}
+
+.theme span{
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ------media queries for responsiveness----------- */
+
+@media screen and (max-width: 990px) {
+    .nav-logout {
+        display: block;
+    }
+    .theme{
+        display: none;
+    }
+    .theme-small-device{
+        display: block;
+        margin-left: 13%;
+    }
+    .theme-small-device span{
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
     }
 }
+
+

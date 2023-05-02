@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {BASE_URL} from '../../../../services/url'
 
 function UpdateDelete() {
   const [calendars, setCalendars] = useState([]);
@@ -11,7 +12,7 @@ function UpdateDelete() {
     async function fetchCalendars() {
       try {
         // Send GET request to fetch calendars
-        const response = await axios.get(`calendar/get`);
+        const response = await axios.get(`${BASE_URL}/calendar/get`);
 
         // Update calendars state with fetched calendars
         setCalendars(response.data);
@@ -33,7 +34,7 @@ function UpdateDelete() {
   const handleDelete = async (calendarId) => {
     try {
       // Send DELETE request to delete calendar
-      const response = await axios.delete(`/calendar/delete/${calendarId}`);
+      const response = await axios.delete(`${BASE_URL}/calendar/delete/${calendarId}`);
       console.log(response.data);
 
       // Update calendars state with remaining calendars
@@ -62,10 +63,10 @@ function UpdateDelete() {
         </thead>
         <tbody>
           {calendars.map((calendar) => (
-            <tr key={calendar._id}>
+            <tr key={calendar._id} style={{fontSize:"1.2rem"}}>
               <td>{calendar.name}</td>
               <td>
-                <img src={`/uploads/${calendar.file}`} alt="timetable" width="50" height="50" />
+                <img src={`${BASE_URL}/uploads/${calendar.file}`} alt="timetable" width="50" height="50" />
               </td>
               <td>
                 <button onClick={() => handleDelete(calendar._id)} className="btn btn-danger">

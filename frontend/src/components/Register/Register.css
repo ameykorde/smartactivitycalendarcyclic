@@ -3,15 +3,22 @@
     text-align: center;
 }
 
+.register input{
+    background-color: white;
+    color: black;
+}
+
+.register input:focus{
+    background-color: white;
+    color: black;
+}
+
 .register span{
     color: hsl(218, 81%, 75%);
     font-size: 4rem;
 }
 
 /*--------- background styling ------ */
-.background-radial-gradient {
-    background-color: hsl(218, 41%, 15%);
-}
 
 #radius-shape-1 {
     height: 220px;

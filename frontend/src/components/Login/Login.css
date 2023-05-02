@@ -1,3 +1,17 @@
+section{
+    color: black;
+}
+
+.login input{
+    background-color: white;
+    color: black;
+}
+
+.login input:focus{
+    background-color: white;
+    color: black;
+}
+
 .main {
     margin-top: 10%;
 }

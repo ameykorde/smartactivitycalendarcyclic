@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Nav";
 import './Classes.css'; 
 import ClassContent from "./ClassContent";
 import axios from 'axios'; // Importing Axios library for making HTTP requests
+import { BASE_URL } from "../../../services/url";
 
 export default function Classes() {
   const [data, setData] = useState([]); // State variables for storing fetched data and for setting data
@@ -13,7 +14,7 @@ export default function Classes() {
   useEffect(() => { // React hook for fetching data and setting state
     const fetchData = async () => { // Function for fetching data
       try {
-        const response = await axios.get(`/ongoing/showOngoing`); // Making GET request to the server
+        const response = await axios.get(`${BASE_URL}/ongoing/showOngoing`); // Making GET request to the server
         setData(response.data); // Setting the fetched data to the state variable
       } catch (error) {
         console.error(error); 

@@ -1,10 +1,18 @@
-import React from "react"
+import React,{useEffect} from "react"
 import { NavLink, useNavigate } from "react-router-dom";
 import '../../Navbar/Nav.css'
 
 export default function InputNavbar() {
     
     const navigate = useNavigate(); 
+
+    useEffect(() => {
+        // Get the theme status from local storage
+        const savedTheme = localStorage.getItem("theme");
+
+        // Apply the stored theme status to the body
+        document.body.className = savedTheme || "light-theme";
+    }, []);
 
     // function to log out the user and redirects to the login page.
     function logout() {

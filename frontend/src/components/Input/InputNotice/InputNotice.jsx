@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import InputNavbar from '../InputNavbar/InputNavbar';
 import './InputNotice.css';
 import NoticeContent from "./NoticeContent";
+import {BASE_URL} from '../../../../services/url'
 
 function Input() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ function Input() {
 
     try {
       // Send a POST request with the notice data to the server
-      const res = await axios.post(`/notice/newNotice`, notice);
+      const res = await axios.post(`${BASE_URL}/notice/newNotice`, notice);
 
       if (res.data.message) {
         toast.success(res.data.message);
@@ -48,7 +49,7 @@ function Input() {
 
     try {
       // Send a DELETE request to delete all notices from the server whose date is less than current date
-      await axios.delete(`/notice/deleteNotice`);
+      await axios.delete(`${BASE_URL}/notice/deleteNotice`);
     } catch (error) {
       console.error(error);
     }
@@ -59,7 +60,7 @@ function Input() {
     const getNotice = async () => {
       try {
         // Send a GET request to retrieve notice data from the server
-        const res = await axios.get(`/notice/noticeData`);
+        const res = await axios.get(`${BASE_URL}/notice/noticeData`);
         // Update the state with the retrieved data
         setData(res.data);
       } catch (err) {
@@ -106,7 +107,7 @@ function Input() {
 
             <div className="input-group mb-3 my-3">
               <span className="input-group-text col-xs-4">
-                <h5>Heading</h5>
+                <h5>Title</h5>
               </span>
               <input
                 name="title"

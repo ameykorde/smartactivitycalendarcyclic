@@ -1,6 +1,7 @@
 // Importing required modules
 import ongoing from '../model/ongoing.mjs';
 import moment from 'moment';
+import 'moment-timezone';
 
 // Function to create a new ongoing class
 const createNewOngoing = async (req, res) => {
@@ -28,6 +29,8 @@ const createNewOngoing = async (req, res) => {
 // Function to get ongoing classes that are currently happening
 const getFilteredOngoing = async (req, res) => {
 	try {
+		moment.tz.setDefault('Asia/Kolkata');  //setting default timezone to Indian Timezone
+
 		// Getting the current time and day
 		const currentTime = moment().format('HH:mm')
 		const currentDay = moment().day()

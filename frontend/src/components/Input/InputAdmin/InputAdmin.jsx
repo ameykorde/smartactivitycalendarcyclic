@@ -4,6 +4,7 @@ import InputNavbar from '../InputNavbar/InputNavbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import {BASE_URL} from '../../../../services/url'
 
 export default function InputAdmin() {
     const [users, setUsers] = useState([]);
@@ -16,7 +17,7 @@ export default function InputAdmin() {
     // Retrieve users from database
     const getUsers = async () => {
         try {
-            const response = await axios.get(`/getUser`);
+            const response = await axios.get(`${BASE_URL}/getUser`);
             setUsers(response.data);
         } catch (error) {
             console.error(error);
@@ -26,7 +27,7 @@ export default function InputAdmin() {
     // Toggle admin status of user in database
     const toggleAdmin = async (id, isAdmin) => {
         try {
-            await axios.patch(`/updateUser/${id}`, { is_admin: !isAdmin });
+            await axios.patch(`${BASE_URL}/updateUser/${id}`, { is_admin: !isAdmin });
             await getUsers();
             toast.success('User admin status updated!');
         } catch (error) {
@@ -38,7 +39,7 @@ export default function InputAdmin() {
     // Delete user from database
     const deleteUser = async (id) => {
         try {
-            await axios.delete(`/deleteUser/${id}`);
+            await axios.delete(`${BASE_URL}/deleteUser/${id}`);
             await getUsers();
             toast.success('User deleted.');
         } catch (error) {
@@ -63,7 +64,7 @@ export default function InputAdmin() {
                     <tbody>
                         {/* Map over all users in the database and display their information */}
                         {users.map((user) => (
-                            <tr key={user._id}>
+                            <tr key={user._id} style={{fontSize:"1.2rem"}}>
                                 <td>{user.name}</td>
                                 {/* Checkbox to toggle admin status of user */}
                                 <td>

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Navbar from "../Navbar/Nav";
 import './Notice.css'
 import NoticeContent from "./NoticeContent";
+import {BASE_URL} from '../../../services/url'
 
 export default function Notice() {
     // Set up state variables
@@ -16,7 +17,7 @@ export default function Notice() {
     useEffect(() => {
         const getNotice = async () => {
             try {
-                const res = await axios.get(`/notice/noticeData`);
+                const res = await axios.get(`${BASE_URL}/notice/noticeData`);
                 setData(res.data);
             } catch (err) {
                 console.log(err);

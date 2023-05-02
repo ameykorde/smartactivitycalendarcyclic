@@ -21,7 +21,6 @@
 }
 
 .timetable-card {
-    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;    
@@ -29,7 +28,6 @@
     border-radius: 20px;
     border: none;
     padding: 1%;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
     overflow: auto;
 }
 

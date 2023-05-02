@@ -5,7 +5,6 @@
   width: 80%;
   max-height: 20rem;
   border-radius: 20px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
   border: none;
   padding: 1%;
   overflow: auto;
@@ -27,7 +26,6 @@
   width: 28%;
   min-height: 30%;
   border-radius: 20px;
-  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.35);
   border: none;
   padding: 1%;
   text-align: left;
@@ -69,11 +67,11 @@
 
 .logout-icon {
   position: fixed;
+  padding: 0.9%;
   right: 2%;
   bottom: 4%;
   z-index: 10 !important;
   border: 0;
-  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.35);
   opacity: 0.9;
 }
 

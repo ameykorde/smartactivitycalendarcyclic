@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NavLink, useNavigate } from 'react-router-dom';
+import {BASE_URL} from '../../../services/url'
 
 // import components
 import Navbar from '../Navbar/Nav';
@@ -20,7 +21,7 @@ function AcademicCalendar() {
     // fetch calendar data from backend
     const fetchCalendars = async () => {
       try {
-        const res = await axios.get(`/calendar/get`);
+        const res = await axios.get(`${BASE_URL}/calendar/get`);
         setCalendars(res.data);
       } catch (err) {
         console.log(err);
@@ -50,7 +51,7 @@ function AcademicCalendar() {
             <button
               key={_id}
               type="button"
-              className="btn btn-lg btn-outline-primary calendar-button mx-5"
+              className="btn btn-lg btn-outline-primary calendar-button mx-5 fs-4 fw-medium" 
               onClick={() => handleCalendarSelect(name)}
             >
               {name}
@@ -63,7 +64,7 @@ function AcademicCalendar() {
             .filter(({ name }) => name === selectedCalendar)
             .map(({ _id, file }) => (
               <div key={_id} className="grid__item">
-                <img className="img-fluid" src={`/uploads/${file}`} alt="grid_image" />
+                <img className="img-fluid" src={`${BASE_URL}/uploads/${file}`} alt="grid_image" />
               </div>
             ))}
         </div>
