@@ -26,7 +26,6 @@
 .custom-navbar,
 .navbar-toggler{
     background-color: var(--nav-bg-color);
-    transition: background-color 600ms ease;
 }
 
 tr,td,th,

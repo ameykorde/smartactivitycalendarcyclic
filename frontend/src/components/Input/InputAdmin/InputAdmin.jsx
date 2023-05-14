@@ -4,7 +4,6 @@ import InputNavbar from '../InputNavbar/InputNavbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import {BASE_URL} from '../../../../services/url'
 
 export default function InputAdmin() {
     const [users, setUsers] = useState([]);
@@ -17,7 +16,7 @@ export default function InputAdmin() {
     // Retrieve users from database
     const getUsers = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/getUser`);
+            const response = await axios.get(`/getUser`);
             setUsers(response.data);
         } catch (error) {
             console.error(error);
@@ -27,7 +26,7 @@ export default function InputAdmin() {
     // Toggle admin status of user in database
     const toggleAdmin = async (id, isAdmin) => {
         try {
-            await axios.patch(`${BASE_URL}/updateUser/${id}`, { is_admin: !isAdmin });
+            await axios.patch(`/updateUser/${id}`, { is_admin: !isAdmin });
             await getUsers();
             toast.success('User admin status updated!');
         } catch (error) {
@@ -39,7 +38,7 @@ export default function InputAdmin() {
     // Delete user from database
     const deleteUser = async (id) => {
         try {
-            await axios.delete(`${BASE_URL}/deleteUser/${id}`);
+            await axios.delete(`/deleteUser/${id}`);
             await getUsers();
             toast.success('User deleted.');
         } catch (error) {

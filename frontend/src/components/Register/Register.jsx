@@ -4,7 +4,6 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import './Register.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { BASE_URL } from '../../../services/url'
 
 function register() {
 
@@ -25,8 +24,8 @@ function register() {
     const handlePassword = (event) => {
         const password = event.target.value;
         setUser({ ...user, password });
-        if (password.length <= 6) {
-            setErrorMessage('Password must be 6 characters long.');
+        if (password.length < 6) {
+            setErrorMessage('Password must be minimum 6 characters long.');
         } else {
             setErrorMessage('');
         }
@@ -38,13 +37,16 @@ function register() {
         const { name, username, id, password, cpassword } = user;
 
         //Checking if user has entered the data or not
-        if(name === "" || username === "" || password === "" || cpassword === ""){
-            toast.error('All fields are mandatory ', {position: "top-center"})
+        if (name === "" || username === "" || password === "" || cpassword === "") {
+            toast.error('All fields are mandatory ', { position: "top-center" })
+        }
+        else if (password.length < 6) {
+            toast.error('Password must be minimum 6 characters long.', { position: "top-center" })
         }
         // Validating input data and posting to server
         else if (name && username && id && (password === cpassword)) {
             // Passwords match, proceed with registration
-            const res = await axios.post(`${BASE_URL}/register/post`, user)
+            const res = await axios.post(`/register/post`, user)
             if (res.data.error) {
                 toast.error(res.data.error, {
                     position: "top-center"

@@ -4,7 +4,6 @@ import Navbar from "../Navbar/Nav";
 import axios from "axios";
 import './Teachers.css'
 import moment from 'moment'
-import {BASE_URL} from '../../../services/url'
 
 export default function Teachers() {
     const navigate = useNavigate();
@@ -18,11 +17,11 @@ export default function Teachers() {
         const fetchData = async () => {
             try {
                 // Fetch all teachers timetable
-                const response = await axios.get(`${BASE_URL}/teacher/get`);
+                const response = await axios.get(`/teacher/get`);
                 setData(response.data);
     
                 // Fetch all the absent teachers
-                const result = await axios.get(`${BASE_URL}/absent/teacher/get`);
+                const result = await axios.get(`/absent/teacher/get`);
                 setAbsentTeachers(result.data);
             } catch (error) {
                 console.error(error);
@@ -71,7 +70,7 @@ export default function Teachers() {
                                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div className="modal-body">
-                                                <img src={`${BASE_URL}/uploads/${teacher.file}`} alt={teacher.name} width="100%" />
+                                                <img src={`/uploads/${teacher.file}`} alt={teacher.name} width="100%" />
                                             </div>
                                         </div>
                                     </div>

@@ -1,19 +1,19 @@
 section.background-radial-gradient {
     background-color: hsl(218, 41%, 15%);
     height: 100vh;
-  }
-  
+}
 
-section{
+
+section {
     color: black;
 }
 
-.login input{
+.login input {
     background-color: white;
     color: black;
 }
 
-.login input:focus{
+.login input:focus {
     background-color: white;
     color: black;
 }
@@ -32,7 +32,7 @@ section{
     font-size: 4rem;
 }
 
-.login-card{
+.login-card {
     margin-top: 14%;
 }
 
@@ -78,9 +78,10 @@ section{
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
+
     section.background-radial-gradient {
         height: 100%;
-      }
+    }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -94,7 +95,6 @@ section{
 
     section.background-radial-gradient {
         height: 100%;
-      }
-      
-}
+    }
 
+}

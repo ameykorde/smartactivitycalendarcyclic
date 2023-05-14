@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import axios from 'axios';
-import './Login.css'
+import './Login.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {BASE_URL} from '../../../services/url'
 
 export default function Login() {
 
@@ -28,7 +27,7 @@ export default function Login() {
 
     try {
       // Making a post request to the login endpoint with user data and setting headers for content-type
-      const response = await axios.post(`${BASE_URL}/login/post`, user, {
+      const response = await axios.post(`/login/post`, user, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -57,7 +56,7 @@ export default function Login() {
   return (
     <>
       <section className="background-radial-gradient overflow-hidden login">
-        <div className="container px-4 py-4 px-md-5 text-center text-lg-start my-5">
+        <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
           <div className="row gx-lg-5 align-items-center mb-5">
             <div className="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: "10" }}>
               <h1 className="my-5 display-5 fw-bold ls-tight">
@@ -69,7 +68,7 @@ export default function Login() {
               <div id="radius-shape-1" className="position-absolute rounded-circle shadow-5-strong"></div>
               <div id="radius-shape-2" className="position-absolute shadow-5-strong"></div>
               <div className="card bg-glass login-card">
-                <h1 className="fw-bold mb-5 text-center mt-4" style={{ color: "#00008b" }}>Login </h1>
+              <h1 className="fw-bold mb-3 text-center mt-4" style={{ color: "hsl(218, 41%, 15%)" }}>Login </h1>
                 <div className="card-body px-4 px-md-5">
                   <form>
                     <div className="form-floating mb-4">

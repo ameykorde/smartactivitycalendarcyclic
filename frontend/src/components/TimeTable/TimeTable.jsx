@@ -3,7 +3,6 @@ import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Nav";
 import './TimeTable.css'
-import {BASE_URL} from '../../../services/url'
 
 export default function TimeTable() {
 
@@ -15,7 +14,7 @@ export default function TimeTable() {
         // function to fetches the timetable data
         async function fetchData() {
             try {
-                const response = await axios.get(`${BASE_URL}/timetable/get`);
+                const response = await axios.get(`/timetable/get`);
                 setData(response.data);
             } catch (error) {
                 console.error(error);
@@ -72,7 +71,7 @@ export default function TimeTable() {
                                                     <div className="modal-body">
                                                         <img
                                                             className="img-fluid"
-                                                            src={`${BASE_URL}/uploads/${image.filename}`}
+                                                            src={`/uploads/${image.filename}`}
                                                             alt="Image"
                                                         />
                                                     </div>

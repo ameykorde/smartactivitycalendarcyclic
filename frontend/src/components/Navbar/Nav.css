@@ -51,17 +51,17 @@ textarea:focus,
 }
 
 /* ----------theme icon -----------*/
-.theme-small-device {
+.theme-small-device{
     display: none;
 }
 
-.theme {
+.theme{
     margin: 0.5% -2% 0 1.5%;
     display: block;
     opacity: 0.9;
 }
 
-.theme span {
+.theme span{
     color: white;
     font-size: 2rem;
     cursor: pointer;
@@ -73,17 +73,14 @@ textarea:focus,
     .nav-logout {
         display: block;
     }
-
-    .theme {
+    .theme{
         display: none;
     }
-
-    .theme-small-device {
+    .theme-small-device{
         display: block;
         margin-left: 13%;
     }
-
-    .theme-small-device span {
+    .theme-small-device span{
         color: white;
         font-size: 2rem;
         cursor: pointer;
