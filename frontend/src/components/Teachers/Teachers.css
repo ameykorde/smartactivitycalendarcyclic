@@ -1,0 +1,69 @@
+.main-div{
+    display: flex;
+}
+
+/*--------Both table styling ----------  */
+
+.teachers-table {
+    border: 1px solid #c2cad3;
+    border-radius: 15px;
+    padding: 10px;
+    width: 40vw;
+}
+
+.teacher-table-heading {
+    font-size: 1.55rem;
+    margin-bottom: 2%;
+    font-weight: 600;
+}
+
+/* -----timetable table styling ------- */
+
+.timetable-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    border-top: 1px solid #dee2e6;
+    padding-top: 10px;
+}
+
+.timetable-row button {
+    padding: 10px;
+}
+
+/* ------absent teacher table styling --------- */
+.absent-teacher-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #dee2e6;
+}
+
+.absent-teacher-row h5 {
+    margin-bottom: 0;
+}
+
+.absent-teacher-row p {
+    margin-bottom: 0;
+}
+
+/* ------media queries for responsiveness --------- */
+@media screen and (max-width: 768px) {
+    .main-div{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .teachers-table{
+        margin-bottom: 5%;
+        width: 95%;
+    }
+    .teacher-table-heading {
+        font-size: 1.15rem;
+    }
+    .modal-dialog {
+        margin-left: 4%;
+    }
+}

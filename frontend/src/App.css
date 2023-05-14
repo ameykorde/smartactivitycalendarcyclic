@@ -1,0 +1,188 @@
+/* -------------------Globally Applied CSS ----------------------- */
+/* Light theme */
+.light-theme {
+    --background-color: #e9ecef;
+    --input-bg-color: #f8f9fa;
+    --text-color: black;
+    --nav-bg-color:  #2B3597;
+    --card-bg-color : white;
+    --card-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+    --color-scheme: light;
+}
+
+/* Dark theme */
+.dark-theme {
+    --background-color: #18122B;
+    --text-color: white;
+    --input-bg-color: #18122B;
+    --nav-bg-color:  #18122B;
+    --card-bg-color : #211f2d;
+    --card-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    --color-scheme: dark;
+}
+
+/*---------------------------------- Dark mode styles -----------------------------------------*/
+
+.custom-navbar,
+.navbar-toggler{
+    background-color: var(--nav-bg-color);
+}
+
+tr,td,th,
+.table-striped>tbody>tr:nth-child(odd)>td{
+    color: var(--text-color);
+}
+
+.input-card,
+.input-notice-card,
+.input-classes-card,
+.add-todo-card,
+.edit-notice-card,
+.classes-card,
+.notice-card,
+.todo-card,
+.timetable-card{
+    box-shadow: var(--card-box-shadow);
+    background-color: var(--card-bg-color);
+    transition: background-color 600ms ease;
+}
+
+.list-group-item{
+    background-color: var(--card-bg-color);
+    transition: background-color 600ms ease;
+    color: var(--text-color);
+}
+
+.teachers-table,
+.modal-content{
+    background-color: var(--card-bg-color);
+    transition: background-color 600ms ease;
+}
+
+.logout-icon{
+    background-color: var(--card-bg-color);
+    transition: background-color 600ms ease;
+    color: var(--text-color);
+    box-shadow: var(--card-box-shadow);
+}
+
+.timetable-row button,
+.calendar-button{
+    color: var(--text-color);
+}
+
+.container input,
+.container select,
+.container textarea,
+.input-group-text{
+    background-color: var(--input-bg-color);
+    transition: background-color 600ms ease;    
+    color: var(--text-color);
+    color-scheme: var(--color-scheme);
+}
+
+.container input:focus,
+.container select:focus,
+.container textarea:focus ,
+.container input[type="file"]:focus {
+    background-color: var(--input-bg-color);
+    color: var(--text-color);   
+}
+
+.container input::placeholder,
+.container select::placeholder,
+.container textarea::placeholder{
+    color: var(--text-color);
+}
+
+
+/* Main CSS */
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 600ms ease;
+}
+
+/* Set font family for all elements inside .container */
+.container {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style for h1 tags inside .container */
+.container h1 {
+    text-align: center;
+    font-weight: 700;
+    margin: 1.5% 0 1%;
+    opacity: 0.9;
+}
+
+/*------------------ Scroll bar ------------------*/
+
+/* Style for scroll bar */
+::-webkit-scrollbar {
+    width: 0.3rem;
+    height: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+    /* Set background color for track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(19, 75, 93);
+    /* Set background color for thumb */
+}
+
+/* ------------Input Plus Button -------------- */
+
+/* Style for plus button */
+.plus-button {
+    background-color: var(--card-bg-color);
+    position: fixed;
+    right: 3%;
+    bottom: 4%;
+    z-index: 1;
+    /* Set z-index to 1 to view over all components*/
+    border: 0;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.35);
+    opacity: 0.9;
+}
+
+/* Style for plus button on hover */
+.plus-button:hover {
+    background-color: var(--card-bg-color);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Style for plus icon */
+.plus-icon {
+    color: var(--text-color);
+    -webkit-text-stroke: 1px var(--text-color);
+}
+
+/* Style for check icon */
+.fa-check {
+    margin-top: 3px;
+    font-size: 1.4rem;
+    -webkit-text-stroke: 2px var(--text-color);
+}
+
+/* Input card used in input academic calendar, teachers, timetable */
+
+/* Style for input card */
+.input-card {
+    margin: auto;
+    border-radius: 25px;
+    padding: 2%;
+    width: 40rem;
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+    .input-card {
+        width: 90%;
+        padding: 5%;
+    }
+}

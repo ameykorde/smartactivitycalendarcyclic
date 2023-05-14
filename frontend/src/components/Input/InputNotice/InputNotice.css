@@ -1,0 +1,76 @@
+/*--------Input Notice Card ---------*/
+.input-notice-card {
+    margin: 1%;
+    width: 90%;
+    min-height: 21rem;
+    border-radius: 20px;
+    border: none;
+    padding: 1.8%;
+    overflow: auto;
+}
+
+/* --------Edit Notice Card appears when user clicks on edit button------- */
+.edit-notice-card {
+    margin: 1%;
+    width: 80%;
+    min-height: 15rem;
+    border-radius: 20px;
+    border: none;
+    padding: 1%;
+    overflow: auto;
+}
+
+.input-notice-date {
+    display: flex;
+}
+
+/* ---------------------- Notice Card-Content----------------- */
+
+.input-notice-time {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+
+.input-notice-content h3 {
+    font-weight: 700;
+    margin-top: 0.3%;
+}
+
+.input-notice-content h5 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    content: justify;
+    line-height: 1.5;
+}
+
+/* Media queries for responsiveness */
+
+@media only screen and (max-width: 768px) {
+    .input-notice-card {
+        margin: 2%;
+        width: 96%;
+        height: 30rem;
+        border-radius: 15px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.35);
+        border: none;
+        padding: 2%;
+        overflow: auto;
+    }
+
+    .edit-notice-card {
+        margin: 2%;
+        width: 90%;
+        min-height: 12rem;
+        border-radius: 15px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.35);
+        border: none;
+        padding: 2%;
+        overflow: auto;
+    }
+
+    .input-notice-date {
+        display: block;
+    }
+}
