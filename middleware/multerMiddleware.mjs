@@ -5,7 +5,7 @@ import path from 'path';
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     // Set destination folder for file upload
-    cb(null, 'https://teal-helpful-crayfish.cyclic.app/public/uploads');
+    cb(null, 'public/uploads');
   },
   filename: (req, file, cb) => {
     // Set filename for uploaded file with current timestamp and original extension
