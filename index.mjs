@@ -47,7 +47,7 @@ app.use('/calendar', verify, calendar);
 app.use('/todo', verify, todo);
 
 app.use('/absent', absentTeacher);
-
+    
 
 // Start server
 app.listen(PORT, () => {
